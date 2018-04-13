@@ -8,11 +8,11 @@
 # install dependencies
 npm install
 
-# build for production with minification
-npm run build
-
 # To start for development
 npm run dev
+
+# build for production with minification
+npm run build
 
 
 
