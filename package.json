@@ -1,8 +1,8 @@
 {
-  "name": "nuxt-express",
+  "name": "JDVault-nxg-UI",
   "version": "1.0.0",
-  "description": "sample of nuxt + express",
-  "author": "lau thiam kok",
+  "description": "JDVault UI",
+  "author": "Naveen ",
   "private": true,
   "scripts": {
     "dev": "backpack dev",
@@ -15,6 +15,7 @@
     "cross-env": "^5.0.1",
     "express": "^4.15.3",
     "nuxt": "^1.0.0-rc3",
+    "request": "^2.85.0",
     "serve-favicon": "^2.4.5"
   },
   "devDependencies": {

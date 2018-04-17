@@ -2,11 +2,10 @@
   <section class="assets">
     <Asset
       v-for="asset in assets"
-      :key="asset.id"
-      :thumbnail="asset.thumbnail"
-      :previewText="asset.previewText"
-      :title="asset.title"
-      :id="asset.id"
+      :key="asset._source._id"
+      :thumbnail="asset._source.fileLocation"
+      :title="asset._source.assetName"
+      :id="asset._source.assetName"
     ></Asset>
   </section>
 </template>
@@ -21,7 +20,7 @@
     },
     async asyncData () {
         let { data } = await axios.get('/api/assets')
-        return { assets: data.data }
+        return { assets: data }
     }
   }
 </script>

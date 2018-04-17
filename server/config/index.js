@@ -2,7 +2,7 @@
 
 export default {
     app: {
-        name: 'something',
+        name: 'JDVault',
         version: '1.0.0'
     },
     server: {

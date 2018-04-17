@@ -1,42 +1,23 @@
 <template>
   <section class="single-asset">
-    <h1> {{asset.title}} </h1>
+    <h1> {{asset._source.assetName}} </h1>
     <div>
-      <img :src="asset.thumbnail" :alt="asset.title"/>
+      <img :src="asset._source.fileLocation" :alt="asset._source.assetName"/>
     </div>
-    <p> {{asset.previewText}} </p>
+    <p> {{asset._source.assetDescription}} </p>
 
   </section>
 
 </template>
 
 <script>
+    import axios from '~/plugins/axios'
+
   export default {
-    asyncData(context) {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve({
-            asset:[
-              {
-                "id":"1",
-                "title": "Title 1",
-                "thumbnail": "http://jdvault.2adpro.com/asset/get-asset-file-contents?assetId=65884",
-                "previewText": "PreviewText 1"
-
-              },
-              {
-                "id":"2",
-                "title": "Title 2",
-                "thumbnail": "http://jdvault.2adpro.com/asset/get-asset-file-contents?assetId=65885",
-                "previewText": "PreviewText 2"
-
-              }
-            ].find( el => el.id === context.params.id)
-          })
-        }, 100)
-
-      })
-    }
+      async asyncData (context) {
+          let { data } = await axios.get('/api/assets/'+context.params.id)
+          return { asset: data[0] }
+      }
   }
 </script>
 
